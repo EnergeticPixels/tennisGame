@@ -18,7 +18,9 @@
 		var ballY = 50;
 		var ballSpeedY = 4;
 		var paddle1Y = 250;
+		var paddle2Y = 250;
 		const PADDLE_HEIGHT = 100;
+		const PADDLE_WIDTH = 10;
 
 		function calculateMousePos(evt) {
 			var rect = canvas.getBoundingClientRect();
@@ -87,7 +89,9 @@
 			// next line blanks out the screen with black
 			colorRect(0, 0, canvas.width, canvas.height, 'black');
 			// this is the users paddle
-			colorRect(0, paddle1Y, 10, PADDLE_HEIGHT, 'white');
+			colorRect(0, paddle1Y, PADDLE_WIDTH, PADDLE_HEIGHT, 'white');
+			// this is the computer-right paddle
+			colorRect((canvas.width - PADDLE_WIDTH), paddle2Y, PADDLE_WIDTH, PADDLE_HEIGHT, 'white');
 			// draw the ball on the screen
 			colorBall(ballX, ballY, 10, 'white');
 			
