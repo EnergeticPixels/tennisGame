@@ -1,6 +1,6 @@
 {
     name: "tennis_game",
-    version: "0.0.1",
+    version: "0.1.0",
     description: "HTML5 and the canvas object to build a game",
     main: "index.html",
     scripts: {
