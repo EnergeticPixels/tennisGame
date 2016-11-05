@@ -69,7 +69,14 @@
 				ballSpeedY = -ballSpeedY;
 			}
 			if(ballX > canvas.width) {
-				ballSpeedX = -ballSpeedX;
+				// testing for a collision on the user paddle.
+				if (ballY > paddle2Y && ballY < (paddle2Y + PADDLE_HEIGHT)) {
+					ballSpeedX = -ballSpeedX;
+				} else {
+					// using boolean logic to reverse the logic above
+					//ballSpeedX = -ballSpeedX;
+					ballReset();
+				}
 				
 			}
 			if(ballX < 0) {
