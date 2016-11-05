@@ -27,6 +27,8 @@
 
 		const WINNING_SCORE = 3;
 
+		var showingWinScreen = false;
+
 		function calculateMousePos(evt) {
 			var rect = canvas.getBoundingClientRect();
 			// we are getting the position of the mouse no matter where on the webpage we
@@ -60,6 +62,7 @@
 			if(player1Score >= WINNING_SCORE || player2Score >= WINNING_SCORE) {
 				player1Score = 0;
 				player2Score = 0;
+				showingWinScreen = true;
 			};
 			ballSpeedX = -ballSpeedX;
 			ballX = canvas.width/2;
@@ -77,6 +80,9 @@
 		};
 
 		function moveEverything() {
+			if(showingWinScreen) {
+				return;
+			}
 			computerMovement();
 			ballX += ballSpeedX;
 			ballY += ballSpeedY;
@@ -124,6 +130,13 @@
 		function drawEverything() {
 			// next line blanks out the screen with black
 			colorRect(0, 0, canvas.width, canvas.height, 'black');
+
+			// I won screen
+			if(showingWinScreen) {
+				canvasContext.fillStyle = 'green';
+				canvasContext.fillText("Click to contine", 100, 100);
+				return;
+			}
 			// this is the users paddle
 			colorRect(0, paddle1Y, PADDLE_WIDTH, PADDLE_HEIGHT, 'white');
 			// this is the computer-right paddle
