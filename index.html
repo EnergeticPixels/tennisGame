@@ -49,23 +49,38 @@
 			})
 		};
 
+		function ballReset() {
+			ballSpeedX = -ballSpeedX;
+			ballX = canvas.width/2;
+			ballY = canvas.height/2;
+
+		};
+
 		function moveEverything() {
 			ballX = ballX + ballSpeedX;
 			ballY = ballY + ballSpeedY;
 			if(ballY > canvas.height) {
 				ballSpeedY = -ballSpeedY;
 			}
-			if(ballX < 0) {
+			if(ballY < 0) {
 				// using boolean logic to reverse the logic above
 				ballSpeedY = -ballSpeedY;
 			}
 			if(ballX > canvas.width) {
 				ballSpeedX = -ballSpeedX;
+				
 			}
 			if(ballX < 0) {
-				// using boolean logic to reverse the logic above
-				ballSpeedX = -ballSpeedX;
-			}
+				// testing for a collision on the user paddle.
+				if (ballY > paddle1Y && ballY < (paddle1Y + PADDLE_HEIGHT)) {
+					ballSpeedX = -ballSpeedX;
+				} else {
+					// using boolean logic to reverse the logic above
+					//ballSpeedX = -ballSpeedX;
+					ballReset();
+				}
+				
+			};
 		};
 
 		function drawEverything() {
