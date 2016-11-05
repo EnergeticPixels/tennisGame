@@ -1,0 +1,29 @@
+{
+    name: "tennis_game",
+    version: "0.0.1",
+    description: "HTML5 and the canvas object to build a game",
+    main: "index.html",
+    scripts: {
+        test: "echo "Error: notestspecified" && exit 1"
+    },
+    keywords: [
+        "html5",
+        "canvas",
+        "tennis",
+        "game"
+    ],
+    repository: {
+        type: "git",
+        url: "git+https://github.com/EnergeticPixels/tennisGame.git"
+    },
+    bugs: {
+        url: "https://github.com/EnergeticPixels/tennisGame/issues"
+    },
+    homepage: "https://github.com/EnergeticPixels/tennisGame#readme",
+    author: {
+        name: "Anthony Jackman",
+        email: "energeticpixels@gmail.com",
+        URL: "http://energeticpixels.us"
+    },
+    license: "MIT"
+}
