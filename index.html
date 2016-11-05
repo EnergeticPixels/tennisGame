@@ -85,6 +85,9 @@
 				// testing for a collision on the user paddle.
 				if (ballY > paddle2Y && ballY < (paddle2Y + PADDLE_HEIGHT)) {
 					ballSpeedX = -ballSpeedX;
+					// adding a little incentive to paddle top/bottom hits
+					var deltaY = ballY -(paddle2Y+PADDLE_HEIGHT/2);
+					ballSpeedY = deltaY * 0.35;
 				} else {
 					// using boolean logic to reverse the logic above
 					//ballSpeedX = -ballSpeedX;
@@ -97,6 +100,9 @@
 				// testing for a collision on the user paddle.
 				if (ballY > paddle1Y && ballY < (paddle1Y + PADDLE_HEIGHT)) {
 					ballSpeedX = -ballSpeedX;
+					// adding a little incentive to paddle top/bottom hits
+					var deltaY = ballY -(paddle1Y+PADDLE_HEIGHT/2);
+					ballSpeedY = deltaY * 0.35;
 				} else {
 					// using boolean logic to reverse the logic above
 					//ballSpeedX = -ballSpeedX;
