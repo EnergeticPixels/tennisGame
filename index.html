@@ -142,7 +142,12 @@
 			// I won screen
 			if(showingWinScreen) {
 				canvasContext.fillStyle = 'green';
-				canvasContext.fillText("Click to contine", 100, 100);
+				if(player1Score >= WINNING_SCORE) {
+					canvasContext.fillText("You Win!", 350, 200);
+				} else if (player2Score >= WINNING_SCORE) {
+					canvasContext.fillText("Computer Wins!", 350, 200);
+				}
+				canvasContext.fillText("Click to continue", 350, 300);			
 				return;
 			}
 			// this is the users paddle
