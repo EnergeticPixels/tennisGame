@@ -135,6 +135,12 @@
 			};
 		};
 
+		function drawNet() {
+			for(var i=0; i<canvas.height; i+=40) {
+				colorRect(canvas.width/2-1, i, 2, 20,'white');
+			}
+		};
+
 		function drawEverything() {
 			// next line blanks out the screen with black
 			colorRect(0, 0, canvas.width, canvas.height, 'black');
@@ -149,7 +155,10 @@
 				}
 				canvasContext.fillText("Click to continue", 350, 300);			
 				return;
-			}
+			};
+
+			// draw the net on the screen
+			drawNet();
 			// this is the users paddle
 			colorRect(0, paddle1Y, PADDLE_WIDTH, PADDLE_HEIGHT, 'white');
 			// this is the computer-right paddle
