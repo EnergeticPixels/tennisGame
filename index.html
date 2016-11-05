@@ -14,8 +14,9 @@
 		var canvas;
 		var canvasContext;
 		var ballX = 50;
-		var ballSpeedX = 5;
-		var ballY;
+		var ballSpeedX = 10;
+		var ballY = 50;
+		var ballSpeedY = 4;
 
 		window.onload = function() {
 			canvas = document.getElementById('gameCanvas');
@@ -30,6 +31,14 @@
 
 		function moveEverything() {
 			ballX = ballX + ballSpeedX;
+			ballY = ballY + ballSpeedY;
+			if(ballY > canvas.height) {
+				ballSpeedY = -ballSpeedY;
+			}
+			if(ballX < 0) {
+				// using boolean logic to reverse the logic above
+				ballSpeedY = -ballSpeedY;
+			}
 			if(ballX > canvas.width) {
 				ballSpeedX = -ballSpeedX;
 			}
@@ -45,7 +54,7 @@
 			// this is the users paddle
 			colorRect(0,210,10,100, 'white');
 			// draw the ball on the screen
-			colorBall(ballX, 150, 10, 'white');
+			colorBall(ballX, ballY, 10, 'white');
 			
 			
 		};
