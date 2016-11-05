@@ -6,14 +6,43 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="canvas object tennis game">
 	<meta name="author" content="EnergeticPixelsLLC">
-	<link rel="stylesheet" href="player.css">
+	<!--<link rel="stylesheet" href="game.css">-->
+
+	<script src=''></script>
+
+	<script>
+		var canvas;
+		var canvasContext;
+		var ballX = 50;
+		var ballY;
+
+		window.onload = function() {
+			canvas = document.getElementById('gameCanvas');
+			canvasContext = canvas.getContext('2d');
+			// draw order from top to bottom as listed
+			setInterval(drawEverything, 50);
+		}
+
+		function drawEverything() {
+			ballX = ballX + 20;
+
+			canvasContext.fillStyle = 'black';
+			canvasContext.fillRect(0,0,canvas.width,canvas.height);
+			canvasContext.fillStyle = 'white';
+			canvasContext.fillRect(225,210,200,200);
+			canvasContext.fillStyle = 'red';
+			canvasContext.fillRect(ballX,100,10,10);
+		}
+
+	</script>
 
 	<!--[if lt IE 9]>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
 	<![endif]-->
 </head>
 <body>
+	<canvas id='gameCanvas' width='800' height='600'>
 
-
+	</canvas>
 </body>
 </html>
